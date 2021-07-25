@@ -1,0 +1,77 @@
+$primaryColor: rgb(255, 216, 41);
+$white: #fff;
+$gray: #333;
+$black: #000;
+
+html {
+  font-family: Roboto, sans-serif;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $primaryColor;
+}
+
+.buttons {
+  background-color: $white;
+  font-size: 2.4rem;
+  color: $black;
+  padding: 1rem 2rem;
+  transform: skew(-10deg);
+  display: inline-block;
+  border: none;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 5px;
+    right: 5px;
+    z-index: -1;
+    background-color: $primaryColor;
+  }
+
+  &::after {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid $black;
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1900px;
+}
+
+// KEYFRAMES
+
+@keyframes linkAnimation {
+  from {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+// #2A9D8F
+// rgb(255, 216, 41);

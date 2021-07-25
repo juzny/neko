@@ -1,0 +1,23 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.app {
+  height: 100vh;
+}
+
+.app .sections {
+  width: 100%;
+  height: calc(100vh - 80px);
+  position: relative;
+  top: 80px;
+}
+
+.app .sections > * {
+  width: 100%;
+  height: calc(100vh - 80px);
+}
+/*# sourceMappingURL=app.css.map */
