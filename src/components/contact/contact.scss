@@ -2,5 +2,145 @@
 
 .contact {
   min-height: 100vh;
-  background-color: darkkhaki;
+
+  &__content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+
+    @media (min-width: 1000px) {
+      flex-direction: row;
+    }
+  }
+
+  &__heading {
+    font-size: 4.5rem;
+    padding: 2rem 6rem;
+    position: relative;
+    z-index: 5;
+    align-self: start;
+
+    @media (min-width: 768px) {
+      font-size: 6rem;
+    }
+
+    @media (min-width: 1000px) {
+      font-size: 8rem;
+      padding: 3rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 3rem;
+      width: 30%;
+      height: 80%;
+      background-color: $primaryColor;
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
+      z-index: -1;
+    }
+  }
+
+  &__box--left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    @media (min-width: 1000px) {
+      margin-right: 1rem;
+    }
+    .contact__form {
+      background-color: $white;
+      margin-bottom: 1rem;
+      width: 95%;
+      height: 50rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      box-shadow: 0rem 0.4rem 1rem 0 rgba(0, 0, 0, 0.3);
+      z-index: 1;
+
+      @media (min-width: 1000px) {
+        height: 75rem;
+      }
+
+      input {
+        width: 80%;
+        height: 5rem;
+        font-size: 1.6rem;
+        font-family: Roboto;
+        outline: none;
+
+        @media (min-width: 1000px) {
+          height: 8rem;
+        }
+      }
+
+      textarea {
+        width: 80%;
+        height: 20rem;
+        font-size: 1.8rem;
+        font-family: Roboto;
+        outline: none;
+      }
+      &--button {
+        width: 50%;
+      }
+    }
+  }
+  &__box--right {
+    overflow: hidden;
+    background-color: white;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 9;
+
+    @media (min-width: 1000px) {
+      align-items: flex-start;
+    }
+
+    .contact__icons {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+      align-items: center;
+      padding: 1rem;
+      width: calc(100% - 2rem);
+      font-size: 1.8rem;
+      box-shadow: 0rem 0.4rem 1rem 0 rgba(0, 0, 0, 0.3);
+
+      @media (min-width: 1000px) {
+        margin-left: 1rem;
+        width: 75%;
+      }
+
+      &--item {
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: 1rem;
+          color: $primaryColor;
+          font-size: 3rem;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          color: black;
+        }
+      }
+    }
+  }
 }
