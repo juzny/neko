@@ -30,6 +30,16 @@ a {
   z-index: 1;
   cursor: pointer;
 
+  &:hover::before {
+    top: 0;
+    right: 0;
+  }
+
+  &:hover::after {
+    top: 5px;
+    right: 5px;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -39,6 +49,7 @@ a {
     right: 5px;
     z-index: -1;
     background-color: $primaryColor;
+    transition: all 0.2s ease-in-out;
   }
 
   &::after {
@@ -50,6 +61,7 @@ a {
     height: 100%;
     border: 1px solid $black;
     opacity: 1;
+    transition: all 0.2s ease-in-out;
   }
 }
 
@@ -72,6 +84,3 @@ a {
     opacity: 0;
   }
 }
-
-// #2A9D8F
-// rgb(255, 216, 41);

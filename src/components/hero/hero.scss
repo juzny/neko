@@ -46,7 +46,6 @@
       .name {
         font-size: 4rem;
         color: $black;
-        // align-self: flex-start;
         text-align: center;
         position: relative;
         width: 80%;
@@ -62,14 +61,18 @@
           transform: skew(-10deg);
           top: 0;
           left: 0;
+
+          @media screen and (min-width: 1000px) {
+            border-bottom: 1rem solid $primaryColor;
+            border-top: 1rem solid $black;
+          }
         }
 
         @media screen and (min-width: 768px) {
-          font-size: 5rem;
+          font-size: 6rem;
         }
 
         @media screen and (min-width: 1000px) {
-          width: 60%;
           font-size: 7rem;
         }
       }
@@ -77,13 +80,12 @@
       .info {
         font-size: 1.8rem;
         color: $gray;
-        // align-self: flex-start;
 
         @media screen and (min-width: 768px) {
           font-size: 3.4rem;
         }
         @media screen and (min-width: 1000px) {
-          font-size: 4.5rem;
+          font-size: 5rem;
         }
       }
 

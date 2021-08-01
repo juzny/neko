@@ -5,6 +5,7 @@ import Portfolio from "./components/portfolio/Portfolio";
 import Offer from "./components/offer/Offer";
 import Contact from "./components/contact/Contact";
 import MenuMobile from "./components/menu_mobile/MenuMobile";
+import Footer from "./components/footer/Footer";
 import "./app.scss";
 import { useState } from "react";
 
@@ -25,6 +26,7 @@ function App() {
         <Offer />
         <Portfolio />
         <Contact />
+        <Footer />
       </div>
     </div>
   );

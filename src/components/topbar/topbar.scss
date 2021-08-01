@@ -1,154 +1,130 @@
 @import "../../global.scss";
 
 .nav {
-    position:fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: $white;
-    color: $primaryColor;
-    box-shadow: 0rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
-    z-index: 12;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: $white;
+  color: $primaryColor;
+  box-shadow: 0rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  z-index: 12;
 
-    
+  &__container {
+    max-width: 1900px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+  }
 
-    &__container {
-        max-width: 1900px;
-        margin: 0 auto;
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.5rem 3rem;
+  &__logo {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $gray;
+
+    @media screen and (min-width: 768px) {
+      font-size: 4rem;
     }
 
-    &__logo {
-        font-size: 3rem;
-        font-weight: 700;
-        text-transform: uppercase;
+    span {
+      color: $primaryColor;
+    }
+  }
+
+  &__left {
+    margin-right: 1rem;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--item {
+      margin-right: 1.5rem;
+      position: relative;
+
+      @media screen and (min-width: 768px) {
+        margin-right: 3rem;
+      }
+
+      a {
+        font-size: 1.6rem;
+        display: inline-block;
+        padding: 0.4rem 0.6rem;
         color: inherit;
 
-        @media screen and (min-width: 768px) {
-            font-size: 4rem;
-        }
-    }
-
-    &__left{
-        margin-right: 1rem;
-      
-    }
-
-    &__right{
-    
-    }
-
-    
-
-    &__menu {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        &--item {
-            margin-right: 1.5rem;
-            position: relative;
-
-            @media screen and (min-width: 768px) {
-                margin-right: 3rem;
-            }
-
-            a {
-                
-                font-size: 1.6rem;
-                display: inline-block;
-                padding: 0.4rem 0.6rem;
-                color: inherit;
-                
-
-                &::after {
-                    left: 50%;
-                }
-
-                &::before {
-                    right: 50%;
-                }
-
-                &::before,
-                &::after {
-                    position:absolute;
-                    width: 0;
-                    bottom:0;
-                    content: "";
-                    border-bottom: 0.3rem solid $primaryColor;
-                    transition: all 0.2s;
-            
-                }
-
-                &:hover::before,
-                &:hover::after {
-                    width:50%;
-                
-               }
-
-
-                @media (min-width: 768px) {
-                    font-size: 2.4rem;
-                }
-            }
-    
+        &::after {
+          left: 50%;
         }
 
-        @media screen and (max-width:767px){
-            display: none;
+        &::before {
+          right: 50%;
         }
+
+        &::before,
+        &::after {
+          position: absolute;
+          width: 0;
+          bottom: -3px;
+          content: "";
+          border-bottom: 0.4rem solid $black;
+          transition: all 0.2s;
+        }
+
+        &:hover::before,
+        &:hover::after {
+          width: 50%;
+        }
+
+        @media (min-width: 768px) {
+          font-size: 2.4rem;
+        }
+      }
     }
 
-    &__burger {
-        width:4rem;
-        height:3rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        cursor: pointer;
-        
-        
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
 
-        .line{
-            width: 100%;
-            height:0.3rem;
-            background-color: $primaryColor;
-            transform-origin: 0;
-            transition: all 0.4s ease-in-out;
-            
-        }
+  &__burger {
+    width: 4rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
 
-        @media screen and (min-width:768px){
-            display: none;
-        }
-
-
+    .line {
+      width: 100%;
+      height: 0.3rem;
+      background-color: $primaryColor;
+      transform-origin: 0;
+      transition: all 0.4s ease-in-out;
     }
 
-    
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
 }
 
-
-
-
-
 .active {
-    
-    .line {
-     
-        &:first-child {
-            transform: rotate(45deg);
-        }
-        &:nth-child(2) {
-            opacity:0;
-        }
-        &:last-child {
-            transform: rotate(-45deg);
-        }
+  .line {
+    &:first-child {
+      transform: rotate(45deg);
     }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:last-child {
+      transform: rotate(-45deg);
+    }
+  }
 }
