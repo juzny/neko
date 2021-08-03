@@ -3,7 +3,7 @@ import "./topbar.scss";
 const Topbar = ({ isOpen, toggle }) => {
   return (
     <div className={"nav " + (isOpen && "active")}>
-      <div className="nav__container">
+      <div className="nav__container wrapper">
         <div className="nav__left">
           <a href="#about" className="nav__logo">
             neko<span>.</span>
