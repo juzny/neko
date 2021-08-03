@@ -125,6 +125,7 @@
     z-index: 9;
 
     .contact__icons {
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -159,10 +160,21 @@
       }
     }
 
-    img {
-      @media (min-width: 1200px) {
-        width: 85%;
+    .contact__image {
+      width: 100%;
+      flex: 3;
+      display: flex;
+      font-display: column;
+      align-items: center;
+
+      img {
+        width: 100%;
       }
     }
+    // img {
+    //   @media (min-width: 1200px) {
+    //     width: 85%;
+    //   }
+    // }
   }
 }

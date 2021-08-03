@@ -43,7 +43,9 @@ const Contact = () => {
               niechocko@wp.pl
             </li>
           </ul>
-          <img src={hands} alt="" />
+          <div className="contact__image">
+            <img src={hands} alt="" />
+          </div>
         </div>
       </div>
     </div>
