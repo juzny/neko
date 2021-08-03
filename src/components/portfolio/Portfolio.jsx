@@ -1,7 +1,6 @@
-import { useState } from "react";
-import CloseIcon from "@material-ui/icons/Close";
-import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
-import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import React, { useState, useCallback } from "react";
+import Gallery from "react-photo-gallery";
+import Carousel, { Modal, ModalGateway } from "react-images";
 import "./portfolio.scss";
 
 import img1 from "../../images/portfolio/resize_1.jpg";
@@ -29,111 +28,158 @@ import img22 from "../../images/portfolio/resize_22.JPG";
 import img23 from "../../images/portfolio/resize_23.JPG";
 
 const Portfolio = () => {
-  let data = [
+  const photos = [
     {
-      imgSrc: img1,
+      src: img1,
+      width: 4,
+      height: 3,
     },
     {
-      imgSrc: img2,
+      src: img2,
+      width: 1,
+      height: 1,
     },
     {
-      imgSrc: img3,
+      src: img3,
+      width: 3,
+      height: 4,
     },
     {
-      imgSrc: img4,
+      src: img4,
+      width: 1,
+      height: 1,
     },
     {
-      imgSrc: img5,
+      src: img5,
+      width: 3,
+      height: 2,
     },
     {
-      imgSrc: img6,
+      src: img6,
+      width: 3,
+      height: 4,
     },
     {
-      imgSrc: img7,
+      src: img7,
+      width: 2,
+      height: 2,
     },
     {
-      imgSrc: img8,
+      src: img8,
+      width: 4,
+      height: 3,
     },
     {
-      imgSrc: img9,
+      src: img9,
+      width: 4,
+      height: 3,
     },
     {
-      imgSrc: img10,
+      src: img10,
+      width: 3,
+      height: 4,
     },
     {
-      imgSrc: img11,
+      src: img11,
+      width: 4,
+      height: 3,
     },
     {
-      imgSrc: img12,
+      src: img12,
+      width: 1,
+      height: 1,
     },
     {
-      imgSrc: img13,
+      src: img13,
+      width: 4,
+      height: 3,
     },
     {
-      imgSrc: img14,
+      src: img14,
+      width: 3,
+      height: 2,
     },
     {
-      imgSrc: img15,
+      src: img15,
+      width: 3,
+      height: 4,
     },
     {
-      imgSrc: img16,
+      src: img16,
+      width: 4,
+      height: 3,
     },
     {
-      imgSrc: img17,
+      src: img17,
+      width: 1,
+      height: 1,
     },
     {
-      imgSrc: img18,
+      src: img18,
+      width: 4,
+      height: 3,
     },
     {
-      imgSrc: img19,
+      src: img19,
+      width: 3,
+      height: 4,
     },
     {
-      imgSrc: img20,
+      src: img20,
+      width: 3,
+      height: 4,
     },
     {
-      imgSrc: img21,
+      src: img21,
+      width: 4,
+      height: 3,
     },
     {
-      imgSrc: img22,
+      src: img22,
+      width: 1,
+      height: 1,
     },
     {
-      imgSrc: img23,
+      src: img23,
+      width: 4,
+      height: 3,
     },
   ];
-  const [model, setModel] = useState(false);
-  const [tempImgSrc, setTempImgSrc] = useState("");
-  const length = model.length;
-  const showImage = (imgSrc) => {
-    setTempImgSrc(imgSrc);
-    setModel(true);
-  };
+  const [currentImage, setCurrentImage] = useState(0);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-  const nextImage = () => {
-    setTempImgSrc(tempImgSrc === length - 1 ? 0 : tempImgSrc + 1);
+  const openLightbox = useCallback((event, { photo, index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
+
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
   };
   return (
     <div className="portfolio" id="portfolio">
-      <div className={model ? "model open" : "model"}>
-        <CloseIcon className="model__close" onClick={() => setModel(false)} />
-        <ArrowLeftIcon className="left" />
-        <ArrowRightIcon className="right" onClick={nextImage} />
-        <img src={tempImgSrc} alt="" className="model__image" />
-      </div>
       <div className="portfolio__content wrapper">
         <h2 className="title">
           Przykładowe <br />
           prace
         </h2>
-        <div className="gallery">
-          {data.map((item, i) => {
-            return (
-              <div className="gallery__image" key={i} onClick={() => showImage(item.imgSrc)}>
-                <div className="gallery__image--item" style={{ backgroundImage: `url(${item.imgSrc})` }}></div>
-              </div>
-            );
-          })}
-        </div>
       </div>
+      <Gallery photos={photos} onClick={openLightbox} />
+      <ModalGateway>
+        {viewerIsOpen ? (
+          <Modal onClose={closeLightbox}>
+            <Carousel
+              currentIndex={currentImage}
+              views={photos.map((x) => ({
+                ...x,
+                srcset: x.srcSet,
+                caption: x.title,
+              }))}
+            />
+          </Modal>
+        ) : null}
+      </ModalGateway>
     </div>
   );
 };

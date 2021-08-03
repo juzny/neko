@@ -76,9 +76,15 @@
       input {
         width: 80%;
         height: 5rem;
+        padding: 1rem;
         font-size: 1.6rem;
         font-family: Roboto;
         outline: none;
+        border: 0.2rem solid black;
+
+        &:focus {
+          border: 0.3rem solid $primaryColor;
+        }
 
         @media (min-width: 1000px) {
           height: 8rem;
@@ -88,9 +94,15 @@
       textarea {
         width: 80%;
         height: 20rem;
+        padding: 1rem;
         font-size: 1.8rem;
         font-family: Roboto;
+        border: 0.2rem solid black;
         outline: none;
+
+        &:focus {
+          border: 0.3rem solid $primaryColor;
+        }
       }
       &--button {
         width: 50%;

@@ -13,6 +13,7 @@ const Contact = () => {
       <div className="contact__content wrapper">
         <div className="contact__box--left box ">
           <h2 className="contact__heading">Kontakt</h2>
+
           <form onSubmit={handleSubmit} className="contact__form" method="POST">
             <input type="text" name="name" placeholder="Imię" required />
             <input id="email" type="email" name="email" placeholder="Email" required />
