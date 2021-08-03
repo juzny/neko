@@ -17,7 +17,7 @@ const About = () => {
             architecto.
           </p>
           <div className="button">
-            <a className="button__download  buttons" href="https://drive.google.com/file/d/1hIRc2UfEJkeO5l9iqB1q599Y25GcMJ5n/view" target="_blank">
+            <a className="button__download  buttons" href="https://drive.google.com/file/d/1hIRc2UfEJkeO5l9iqB1q599Y25GcMJ5n/view" target="_blank" rel="noreferrer">
               CV
               <GetAppIcon className="button__download--icon" />
             </a>

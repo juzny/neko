@@ -7,7 +7,7 @@ function Footer() {
     <div className="footer">
       <div className="footer__content wrapper">
         <p className="privacy_policy">
-          <a href="">Polityka prywatności</a>
+          <a href="https://www.google.pl/">Polityka prywatności</a>
         </p>
         <h3>Neko. &copy; 2021</h3>
       </div>
